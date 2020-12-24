@@ -1,0 +1,268 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(137, 20, 204);
+}
+
+.start-game {
+  position: absolute;
+  top: 40%;
+  background-color: rgb(0, 188, 245);
+  padding: 30px 50px;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.start-game:hover {
+  background-color: rgb(0, 115, 150);
+}
+
+.grid-footer {
+  display: none;
+  gap: 100px;
+  margin-top: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.new-game {
+  background-color: rgb(72, 0, 78);
+  padding: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(252, 252, 252);
+  cursor: pointer;
+}
+
+.new-game:hover {
+  background-color: rgb(189, 0, 88);
+}
+
+.time-moves {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-items: center;
+  background-color: rgb(72, 0, 78);
+  border-radius: 5px;
+}
+
+.title-time {
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+.title-moves {
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+.value-time {
+  padding: 10px;
+  padding-top: 0px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.value-moves {
+  padding: 10px;
+  padding-top: 0px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.full-game-board {
+  display: none;
+  position: relative;
+  height: 450px;
+  width: 450px;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(4, auto);
+  gap: 10px;
+  width: 450px;
+  height: 450px;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+}
+
+.grid-content {
+  width: 100px;
+  height: 100px;
+  background:rgb(0, 184, 197);
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all .2s;
+}
+
+.little-circle {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: rgba(77, 77, 77, 0.1);
+  border-radius: 50%;
+}
+
+.text {
+  z-index: 1;
+  font-size: 70px;
+  font-weight: bold;
+  font-family: "fulbo-retro";
+  color: rgb(255, 255, 255);
+}
+
+.big-circle {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(77, 77, 77, 0.1);
+  border-radius: 50%;
+}
+
+.text-none {
+  background-color: rgb(82, 0, 129);
+}
+
+.draw-single-grid {
+  background-color: rgb(235, 133, 0);
+}
+
+.pause {
+  display: none;
+  background-color: rgb(72, 0, 78);
+  width: 75%;
+  padding: 20px 40px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: rgb(252, 252, 252);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.pause:hover {
+  background-color: rgb(189, 0, 88);
+}
+
+.overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  width: 450px;
+  height: 450px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0);
+  opacity: .1;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.resume {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  z-index: 5;
+  opacity: 1;
+  cursor: pointer;
+  transition: all .6s;
+}
+
+.resume:hover {
+  background-color: rgb(51, 0, 56);
+}
+
+.triangle-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  border-top: 20px solid transparent;
+  border-left: 35px solid rgba(255, 0, 0, 0.8);
+  border-bottom: 20px solid transparent;
+  z-index: 33;
+}
+
+.win {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  z-index: 5;
+  opacity: 1;
+  cursor: pointer;
+  transition: all .6s;
+  overflow: hidden;
+}
+
+.congrats {
+  font-family: 'Lobster', cursive;
+  font-size: 40px;
+  color: rgb(63, 0, 114);
+  padding-bottom: 15px;
+}
+
+.scores {
+  font-size: large;
+  padding: 10px;
+}
+
+#winningMoves, #seconds {
+  font-weight: bold;
+}
+
+.play-again {
+  background-color: rgb(63, 0, 114);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px 70px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.play-again:hover {
+  background-color: rgb(189, 0, 88);
+}
